@@ -467,9 +467,10 @@ namespace Reflexil.Forms
 				return tdef.Name;
 
 			var adef = obj as AssemblyDefinition;
-			if (adef != null)
-				return adef.Name.Name;
+		    if (adef != null)
+		        return adef.Name.Name;
 
+            //@ todo 
 			if (obj is IAssemblyWrapper)
 				return obj.ToString();
 

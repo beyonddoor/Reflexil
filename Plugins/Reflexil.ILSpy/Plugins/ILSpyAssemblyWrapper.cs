@@ -40,7 +40,16 @@ namespace Reflexil.Plugins.ILSpy
 
 		public string Name
 		{
-			get { return IsValid ? LoadedAssembly.AssemblyDefinition.Name.Name : string.Empty; }
+		    get
+		    {
+		        if (IsValid)
+		        {
+                    //@ to make name more clear.
+		            var name = LoadedAssembly.AssemblyDefinition.Name;
+		            return string.Format("{0}({1})", name.Name, name.Version);
+		        }
+		        return "";
+		    }
 		}
 
 		public ILSpyAssemblyWrapper(LoadedAssembly loadedAssembly)
